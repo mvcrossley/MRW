@@ -2,8 +2,8 @@
 	require_once('admin/phpscripts/init.php');
 	
 	if(isset($_GET['id'])) {
-		$tbl = "tbl_movies";
-		$col = "movies_id";
+		$tbl = "tbl_movie";
+		$col = "movie_id";
 		$id = $_GET['id'];
 		$getOne = getOne($tbl, $col, $id);
 
