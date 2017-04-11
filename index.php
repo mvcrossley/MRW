@@ -8,27 +8,23 @@
 	$getAll = getAll($tbl);
 ?>
 
-
 <?php include("includes/header.html"); ?>
 
-<?php
-	if(!is_string($getAll)){
-		while($row = mysqli_fetch_array($getAll)){
-			echo "<img src=\"images/{$row['movie_thumb']}\" alt=\"{$row['movie_title']}\">
-				 <h2>{$row['movie_title']}</h2><br>
-				 <a href=\"details.php?id={$row['movie_id']}\">Read Reviews</a><br><br>";
-		}
-	}else{
-		echo "<p>{$getAll}</p>";
-	}
-?>
+	<section class="row">
+	<h2>Our Favourite Movies!</h2>
+		<?php
+			if(!is_string($getAll)){
+				while($row = mysqli_fetch_array($getAll)){
+					echo 	"<div class=\"small-6 medium-3 large-2 column end movieThumb\">
+								<img src=\"images/{$row['movie_thumb']}\" alt=\"{$row['movie_title']}\">
+								<h3>{$row['movie_title']}</h3>
+								<a href=\"details.php?id={$row['movie_id']}\">Read Reviews</a>
+							</div>";
+				}
+			}else{
+				echo "<p>{$getAll}</p>";
+			}
+		?>
+	</section>
 
-
-<?php include("includes/footer.html"); ?>
-
-<script src="js/app.js"></script>
-<script src="js/vendor/jquery.js"></script>
-<script src="js/vendor/what-input.js"></script>
-<script src="js/vendor/foundation.js"></script>
-</body>
-</html>
+<?php include("includes/footer.html");?>

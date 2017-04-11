@@ -1,1 +1,39 @@
 @charset "UTF-8";
+
+
+h1,h2,h3,h4{
+	font-family: 'Satisfy', cursive;
+}
+
+p, a, li, span{
+	font-family: 'Roboto Mono', monospace;
+}
+
+
+/*/////		Main Nav 	/////*/
+
+#mainNav{
+	text-align: center;
+	background: pink url('../images/banner-bg.jpg') center;
+}
+#mainNav img{
+	width: 400px;
+}
+
+/*/////		Index Page  	/////*/
+
+.movieThumb{
+	padding: 20px;
+}
+
+.movieThumb img{
+	padding: 10px;
+	border: dashed 1px #212121;
+}
+
+.movieThumb h2{
+	padding: 10px;
+	border: dashed 4px #212121;
+}
+
+/*/////		Details Page 	/////*/
