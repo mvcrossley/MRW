@@ -9,6 +9,25 @@
 
 		$tbl2 = "tbl_comments";
 		$getComments = getComments($tbl2, $id);
+
+		if(isset($_POST['submit']))
+		{
+			date_default_timezone_set('America/New_York');
+
+			$username = trim($_POST['username']);
+			$time = date('F j Y h:i:s A');
+			$text = trim($_POST['text']);
+			$rating = $_POST['rating'];
+
+			if (empty($rating))
+			{
+				$message = "Please rate the movie.";
+			}
+			else
+			{
+				$result = postReview($username, $time, $text, $rating, $id);
+			}
+		}
 	}
 ?>
 <!doctype html>
@@ -27,8 +46,6 @@
 
 <a href="index.php"><i class="fa fa-arrow-left" aria-hidden="true"></i>  Go Back to Movie List...</a><br>
 
-<h2><i class="fa fa-comments" aria-hidden="true"></i>  Read the Reviews</h2>
-
 <?php
 	if(!is_string($getOne)){
 		$row = mysqli_fetch_array($getOne);
@@ -41,7 +58,11 @@
 	}else{
 		echo "<p>{$getOne}</p>";
 	}
+?>
 
+	<h2><i class="fa fa-comments" aria-hidden="true"></i> Read the Reviews</h2>
+
+<?php
 	if(!is_string($getComments)){
 		while($row = mysqli_fetch_array($getComments)){
 			echo "<h3>{$row['comment_user']}</h3>
@@ -57,22 +78,22 @@
 
 <h2>Post a Review:</h2>
 <?php if(!empty($message)){echo $message;} ?>
-	<form action="admin_details.php?id={$row['movie_id']}" method="post" enctype="multipart/form-data"><!--By default, forms are set to handle text. Set to multipart form data to handle other types of files-->
+	<form action="details.php?id=<?php echo "$id";?>" method="post">
 		<label>Nickname:</label><br>
-		<input type="text" name="comment_user" value="" size="32"><br><br>
+		<input type="text" name="username" value="" size="32"><br><br>
 		<label>Comment:</label><br>
-		<input type="text" name="comment_text" value="" size="32" ><br><br>
+		<input type="text" name="text" value="" size="32" ><br><br>
 		<label>Select Rating:</label><br>
-		<select name="comment_rating" >
+		<select name="rating" >
 			<option value="">Please Select One...</option>
-			<option value="">&#9733;&#9734;&#9734;&#9734;&#9734;</option>
-			<option value="">&#9733;&#9733;&#9734;&#9734;&#9734;</option>
-			<option value="">&#9733;&#9733;&#9733;&#9734;&#9734;</option>
-			<option value="">&#9733;&#9733;&#9733;&#9733;&#9734;</option>
-			<option value="">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
-	</select><br><br><br><br>
-	<input type="submit" name="submit" value="Add" >
-</form>
+			<option value="&#9733;&#9734;&#9734;&#9734;&#9734;">&#9733;&#9734;&#9734;&#9734;&#9734;</option>
+			<option value="&#9733;&#9733;&#9734;&#9734;&#9734;">&#9733;&#9733;&#9734;&#9734;&#9734;</option>
+			<option value="&#9733;&#9733;&#9733;&#9734;&#9734;">&#9733;&#9733;&#9733;&#9734;&#9734;</option>
+			<option value="&#9733;&#9733;&#9733;&#9733;&#9734;">&#9733;&#9733;&#9733;&#9733;&#9734;</option>
+			<option value="&#9733;&#9733;&#9733;&#9733;&#9733;">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
+		</select><br><br><br><br>
+		<input type="submit" name="submit" value="Add">
+	</form>
 
 <?php
     include("includes/footer.html");
