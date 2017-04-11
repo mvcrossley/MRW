@@ -2,17 +2,20 @@
 	require_once('admin/phpscripts/init.php');
 	
 	if(isset($_GET['id'])) {
-		$tbl = "tbl_movie";
-		$col = "movie_id";
+		$tbl = "tbl_movies";
+		$col = "movies_id";
 		$id = $_GET['id'];
 		$getOne = getOne($tbl, $col, $id);
+
+		$tbl2 = "tbl_comments";
+		$getComments = getComments($tbl2, $id);
 	}
 ?>
 <!doctype html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title><?php{$row['movie_title']}?></title>
+<title>Movie Reviews</title>
 <link href="css/foundation.css" rel="stylesheet" type="text/css">
 <link href="css/app.css" rel="stylesheet" type="text/css">
 <script src="https://use.fontawesome.com/bffe9fd51f.js"></script>
@@ -25,7 +28,6 @@
 <a href="index.php">Go Back to Movie List...</a><br>
 
 <?php
-
 	if(!is_string($getOne)){
 		$row = mysqli_fetch_array($getOne);
 			echo "{$row['movie_trailer']}
@@ -37,7 +39,19 @@
 	}else{
 		echo "<p>{$getOne}</p>";
 	}
+
+	if(!is_string($getComments)){
+		while($row = mysqli_fetch_array($getComments)){
+			echo "<h3>{$row['comment_user']}</h3>
+				<p>{$row['comment_time']}</p>
+				<p>{$row['comment_rating']}</p>
+				<p>{$row['comment_text']}</p>";
+		}
+	}else{
+		echo "<p>{$getComments}</p>";
+	}
 ?>
+
 
 <h2>Post a Review:</h2>
 <?php if(!empty($message)){echo $message;} ?>
