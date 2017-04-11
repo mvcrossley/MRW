@@ -24,4 +24,17 @@
 			return $message;
 		}
 	}
+
+	function getComments($tbl2, $id) {
+		include('connect.php');
+		$queryAll = "SELECT * FROM {$tbl2} WHERE comment_movie = {$id}";
+		$runAll = mysqli_query($link, $queryAll);
+		
+		if($runAll){
+			return $runAll;	
+		}else{
+			$message = "Couldn't retrieve comments. Try again later, or contact your admin.";
+			return $message;
+		}
+	}
 ?>
