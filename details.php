@@ -25,7 +25,9 @@
     include("includes/header.html");
 ?>
 
-<a href="index.php">Go Back to Movie List...</a><br>
+<a href="index.php"><i class="fa fa-arrow-left" aria-hidden="true"></i>  Go Back to Movie List...</a><br>
+
+<h2><i class="fa fa-comments" aria-hidden="true"></i>  Read the Reviews</h2>
 
 <?php
 	if(!is_string($getOne)){
