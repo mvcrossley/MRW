@@ -11,20 +11,25 @@
 <?php include("includes/header.html"); ?>
 
 	<section class="row">
-	<h2>Our Favourite Movies!</h2>
-		<?php
-			if(!is_string($getAll)){
-				while($row = mysqli_fetch_array($getAll)){
-					echo 	"<div class=\"small-6 medium-3 large-2 column end movieThumb\">
-								<img src=\"images/{$row['movie_thumb']}\" alt=\"{$row['movie_title']}\">
-								<h3>{$row['movie_title']}</h3>
-								<a href=\"details.php?id={$row['movie_id']}\">Read Reviews</a>
-							</div>";
+		<div id="home">
+		<h2>Our Favourite Movies!</h2>
+			<?php
+				if(!is_string($getAll)){
+					while($row = mysqli_fetch_array($getAll)){
+						echo 	"<div class=\"small-6 medium-3 large-2 column end movieThumb\">
+									<div class=\"movieCon\">
+									<a href=\"details.php?id={$row['movie_id']}\">
+										<img src=\"images/{$row['movie_thumb']}\" alt=\"{$row['movie_title']}\">
+										<h4>{$row['movie_title']}</h4>
+									</a>
+									</div>
+								</div>";
+					}
+				}else{
+					echo "<p>{$getAll}</p>";
 				}
-			}else{
-				echo "<p>{$getAll}</p>";
-			}
-		?>
+			?>
+		</div>
 	</section>
 
 <?php include("includes/footer.html");?>

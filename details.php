@@ -33,26 +33,28 @@
 ?>
 
 <?php include("includes/header.html"); ?>
-<section class="row">
+<section class="expanded row">
 	<h2 class="hide">Go Back to Home Page</h2>
-	<div>
+	<div id="goBack" class="row">
 		<a href="index.php"><i class="fa fa-arrow-left" aria-hidden="true"></i>  Go Back to Movie List...</a>
 	</div>
 </section>
 
-<section class="row">
+<section class="row" id="movieInfo">
 <h2 class="hide">Movie Details</h2>
 	<?php
 		if(!is_string($getOne)){
 			$row = mysqli_fetch_array($getOne);
 				echo "
-					<div class=\"small-12 large-6 column\">{$row['movie_trailer']}</div>
-					<div class=\"small-12 large-6 column\">
-					 <h2>{$row['movie_title']}</h2>
-					 <p>{$row['movie_year']}</p><br>
-					 <p>{$row['movie_genre']}</p><br>
-					 <p>{$row['movie_role']}</p><br>
-					 <p>{$row['movie_desc']}</p><br>
+					<div id=\"trailer\" class=\"small-12 large-6 column\">
+						{$row['movie_trailer']}
+					</div>
+					<div id=\"movieDesc\" class=\"small-12 large-6 column\">
+						<h3>{$row['movie_title']}</h3>
+						<p>Year: <span>{$row['movie_year']}</span></p>
+						<p>Genre: <span>{$row['movie_genre']}</span></p>
+						<p>Role: <span>{$row['movie_role']}</span></p>
+						<p>Description: <span>{$row['movie_desc']}</span></p>
 					</div>";
 		}else{
 			echo "<p>{$getOne}</p>";
@@ -60,14 +62,14 @@
 	?>
 </section>
 
-<section class="row">
+<section class="row" id="reviews">
 <h2 class="hide">Movie Reviews</h2>
-	<h3><i class="fa fa-comments" aria-hidden="true"></i> Read the Reviews</h3>
+	<h4><i class="fa fa-comments" aria-hidden="true"></i> Read the Reviews</h4>
 
 	<?php
 		if(!is_string($getComments)){
 			while($row = mysqli_fetch_array($getComments)){
-				echo "<h3>{$row['comment_user']}</h3>
+				echo "<h4>{$row['comment_user']}</h4>
 					<p>{$row['comment_time']}</p>
 					<p>{$row['comment_rating']}</p>
 					<p>{$row['comment_text']}</p>";
@@ -78,17 +80,17 @@
 	?>
 </section>
 
-<section class="row">
+<section class="row" id="comments">
 
 	<h2>Write a Review:</h2>
 	<?php if(!empty($message)){echo $message;} ?>
 		<form action="details.php?id=<?php echo "$id";?>" method="post">
-			<div class="small-12 medium-8 large-6 column">
-				<label>Nickname:</label><br>
+			<div id="nickname" class="small-12 medium-8 large-6 column">
+				<label>Nickname:</label>
 				<input type="text" name="username" value="" size="32">
 			</div>
-			<div class="small-12 medium-4 column">
-				<label>Select Rating:</label><br>
+			<div id="rating" class="small-12 medium-4 column">
+				<label>Select Rating:</label>
 				<select name="rating" >
 					<option value="">Please Select One...</option>
 					<option value="&#9733;&#9734;&#9734;&#9734;&#9734;">&#9733;&#9734;&#9734;&#9734;&#9734;</option>
@@ -96,14 +98,14 @@
 					<option value="&#9733;&#9733;&#9733;&#9734;&#9734;">&#9733;&#9733;&#9733;&#9734;&#9734;</option>
 					<option value="&#9733;&#9733;&#9733;&#9733;&#9734;">&#9733;&#9733;&#9733;&#9733;&#9734;</option>
 					<option value="&#9733;&#9733;&#9733;&#9733;&#9733;">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
-				</select><br><br><br><br>
+				</select><br>
 			</div>
-			<div class="small-12 column">
-				<label>Comment/Review:</label><br>
+			<div id="review" class="small-12 column">
+				<label>Comment/Review:</label>
 				<textarea name="text"></textarea>
 			</div>
 			
-			<div class="small-12 column">
+			<div id="submit" class="small-12 column">
 				<input type="submit" name="submit" value="Add">
 			</div>
 		</form>

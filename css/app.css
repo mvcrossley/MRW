@@ -1,11 +1,21 @@
 @charset "UTF-8";
 
-
-h1,h2,h3,h4{
-	font-family: 'Satisfy', cursive;
+html, body{
+	color: #212121;
+	font-size: 100%;
 }
 
-p, a, li, span{
+h1,h2,h3,h4{
+	color: #212121;
+	font-family: 'Satisfy', cursive;
+	font-size: 3em;
+}
+
+h4{
+	font-size: 2em;
+}
+
+p, a, li, span, label{
 	font-family: 'Roboto Mono', monospace;
 }
 
@@ -20,20 +30,125 @@ p, a, li, span{
 	width: 400px;
 }
 
+#mainNav h2{
+	font-size: 4em;
+	color: #f442b3;
+}
+
+/*/////		Footer  	/////*/
+
+footer{
+	font-size: .8em;
+	text-align: right;
+	padding-top: 20px;
+	border-top: solid 1px #ccc;
+}
+
+
+
 /*/////		Index Page  	/////*/
+
+#home{
+	text-align: center;
+	padding: 20px;
+}
 
 .movieThumb{
 	padding: 20px;
 }
 
-.movieThumb img{
-	padding: 10px;
+.movieCon{
 	border: dashed 1px #212121;
+	padding: 10px;
+	text-align: center;
 }
 
-.movieThumb h2{
-	padding: 10px;
-	border: dashed 4px #212121;
+.movieCon:hover{
+	opacity: 0.8;
+}
+
+.movieCon img{
+	padding-bottom: 10px;
+}
+
+.movieCon h4{
+	font-family: 'Roboto Mono', monospace;
+	font-size: 1.1em;
+	color: #212121;
+	margin: 0;
 }
 
 /*/////		Details Page 	/////*/
+
+#goBack{
+	padding: 30px;
+	margin-bottom: 40px;
+	border-bottom: solid 1px #ccc;
+
+}
+
+#goBack a:hover{
+	opacity: 1;
+}
+
+#goBack a{
+	color: #212121;
+	opacity: 0.5;
+}
+
+iframe{
+	width: 100%;
+	height: 350px;
+}
+
+#movieDesc{
+	padding-left: 20px;
+	border-left: dashed 1px #212121;
+	height: 350px;
+}
+
+#movieDesc h3{
+	padding-bottom: 30px;
+}
+
+#movieDesc span{
+	font-style: italic;
+}
+
+#movieInfo{
+	border-bottom: solid 1px #ccc;
+	padding-bottom: 30px;
+}
+
+#reviews{
+	border-bottom: solid 1px #ccc;
+	padding: 30px 0;
+}
+
+#comments{
+	padding-bottom: 100px;
+}
+
+#comments h2{
+	font-family: 'Roboto Mono', monospace;
+	padding: 30px 0;
+	font-size: 2em;
+}
+
+#review textarea{
+	height: 200px;
+}
+
+#nickname input, #rating select, #rating select option{
+	height: 50px;
+	font-family: 'Roboto Mono', monospace;
+	border: solid 1px #ccc;
+	background-color: #fff;
+}
+
+#comments #submit input{
+	font-family: 'Roboto Mono', monospace;
+	padding: 12px 80px;
+	border: solid 1px #ccc;
+	background-color: #fff;
+}
