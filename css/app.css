@@ -31,7 +31,7 @@ p, a, li, span, label{
 }
 
 #mainNav h2{
-	font-size: 4em;
+	font-size: 2em;
 	color: #f442b3;
 }
 
@@ -53,8 +53,12 @@ footer{
 	padding: 20px;
 }
 
+#home h2{
+	font-size: 1.5em;
+}
+
 .movieThumb{
-	padding: 20px;
+	padding-bottom: 20px;
 }
 
 .movieCon{
@@ -73,7 +77,7 @@ footer{
 
 .movieCon h4{
 	font-family: 'Roboto Mono', monospace;
-	font-size: 1.1em;
+	font-size: 0.9em;
 	color: #212121;
 	margin: 0;
 }
@@ -102,9 +106,7 @@ iframe{
 }
 
 #movieDesc{
-	padding-left: 20px;
-	border-left: dashed 1px #212121;
-	height: 350px;
+
 }
 
 #movieDesc h3{
@@ -122,7 +124,22 @@ iframe{
 
 #reviews{
 	border-bottom: solid 1px #ccc;
-	padding: 30px 0;
+	padding: 30px 10px;
+}
+
+#reviews h4{
+	font-family: 'Roboto Mono', monospace;
+	font-size: 1.5em;
+}
+
+#reviewInd{
+	background-color: #eee;
+	margin: 10px 0;
+}
+
+#reviewInd span{
+	font-style: italic;
+	font-size: 0.8em;
 }
 
 #comments{
@@ -130,6 +147,7 @@ iframe{
 }
 
 #comments h2{
+	text-align: center;
 	font-family: 'Roboto Mono', monospace;
 	padding: 30px 0;
 	font-size: 2em;
@@ -151,4 +169,53 @@ iframe{
 	padding: 12px 80px;
 	border: solid 1px #ccc;
 	background-color: #fff;
+	width: 100%;
+}
+
+/*/////		X-Small to Small 	/////*/
+@media screen and (min-width: 30em) {
+	.movieCon h4{
+		font-size: 1.1em;
+	}
+
+}
+
+/*/////		Small to Medium 	/////*/
+@media screen and (min-width: 40em) {
+
+	#mainNav h2{
+		font-size: 2.8em;
+	}
+
+	#home h2{
+		font-size: 2.5em;
+	}
+
+
+
+	#comments #submit input{
+		width: auto;
+	}
+}
+
+/*/////		Medium to Large 	/////*/
+@media screen and (min-width: 64em) {
+	#mainNav h2{
+		font-size: 4em;
+	}
+
+	#home h2{
+		font-size: 3em;
+	}
+
+	#movieDesc{
+		padding-left: 20px;
+		border-left: dashed 1px #212121;
+		height: 350px;
+	}
+
+	#comments h2{
+		text-align: left;
+		padding-left: 20px;
+	}
 }
