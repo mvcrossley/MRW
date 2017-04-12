@@ -63,16 +63,16 @@
 </section>
 
 <section class="row" id="reviews">
-<h2 class="hide">Movie Reviews</h2>
-	<h4><i class="fa fa-comments" aria-hidden="true"></i> Read the Reviews</h4>
+	<h2><i class="fa fa-comments" aria-hidden="true"></i> Read the Reviews</h2>
 
 	<?php
 		if(!is_string($getComments)){
 			while($row = mysqli_fetch_array($getComments)){
-				echo "<h4>{$row['comment_user']}</h4>
-					<p>{$row['comment_time']}</p>
-					<p>{$row['comment_rating']}</p>
-					<p>{$row['comment_text']}</p>";
+				echo "<div id=\"reviewInd\" class=\"small-12 column\">
+						<h4>{$row['comment_user']} {$row['comment_rating']}</h4>
+						<p><span>{$row['comment_time']}</span></p>
+						<p>{$row['comment_text']}</p>
+					</div>";
 			}
 		}else{
 			echo "<p>{$getComments}</p>";
