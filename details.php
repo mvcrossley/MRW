@@ -12,24 +12,24 @@
 		$tbl2 = "tbl_comments";
 		$getComments = getComments($tbl2, $id);
 
-		if(isset($_POST['submit']))
-		{
-			date_default_timezone_set('America/New_York');
-
-			$username = trim($_POST['username']);
-			$time = date('F j Y h:i:s A');
-			$text = trim($_POST['text']);
-			$rating = $_POST['rating'];
-
-			if (empty($rating))
-			{
-				$message = "Please rate the movie.";
-			}
-			else
-			{
-				$result = postReview($username, $time, $text, $rating, $id);
-			}
-		}
+//		if(isset($_POST['submit']))
+//		{
+//			date_default_timezone_set('America/New_York');
+//
+//			$username = trim($_POST['username']);
+//			$time = date('F j Y h:i:s A');
+//			$text = trim($_POST['text']);
+//			$rating = $_POST['rating'];
+//
+//			if (empty($rating))
+//			{
+//				$message = "Please rate the movie.";
+//			}
+//			else
+//			{
+//				$result = postReview($username, $time, $text, $rating, $id);
+//			}
+//		}
 	}
 ?>
 
@@ -86,7 +86,7 @@
 
 	<h2>Write a Review:</h2>
 	<?php if(!empty($message)){echo $message;} ?>
-		<form action="details.php?id=<?php echo "$id";?>" method="post">
+		<form id="postComment" name="commentForm">
 			<div id="nickname" class="small-12 medium-8 large-6 column">
 				<label>Nickname:</label>
 				<input type="text" name="username" value="" size="32">
@@ -108,7 +108,7 @@
 			</div>
 			
 			<div id="submit" class="small-12 column">
-				<input type="submit" name="submit" value="Add">
+				<input type="submit" onclick="myFunction()" name="submit" value="Submit">
 			</div>
 		</form>
 
