@@ -31,7 +31,7 @@
 
 	function getComments($tbl2, $id) {
 		include('connect.php');
-		$queryAll = "SELECT * FROM {$tbl2} WHERE comment_movie = {$id}";
+		$queryAll = "SELECT * FROM {$tbl2} WHERE comment_movie = {$id} ORDER BY comment_time ASC";
 		$runAll = mysqli_query($link, $queryAll);
 		
 		if($runAll){
