@@ -5,7 +5,7 @@
 		$tbl = "tbl_movie";
 		$col = "movie_id";
 		$id = $_GET['id'];
-		echo $id;
+		//echo $id;
 		$getOne = getOne($tbl, $col, $id);
 		$getTitle = getOne($tbl, $col, $id);
 
