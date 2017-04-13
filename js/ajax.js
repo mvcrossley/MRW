@@ -26,28 +26,28 @@
 			var commentData = JSON.parse(httpRequest.responseText);
 			console.log(commentData.length);
 
-			for(i; i>commentData.length; i++){
+			for(i=0; i<commentData.length; i++){
 				var div = document.createElement ("div");
+				var shell = document.querySelector("#reviews");
+				shell.appendChild(div);
+
+				div.classlist.add("reviewInd");
 
 				var user = document.createElement ("h4");
-				user.textContent = commentData.comment_user;
+				user.innerHTML = commentData.comment_user;
 				div.appendChild(user);
-				document.body.appendChild(div);
 
 				var rating = document.createElement ("h4");
-				rating.textContent = commentData.comment_user;
+				rating.innerHTML = commentData.comment_user;
 				div.appendChild(rating);
-				document.body.appendChild(div);
 
 				var time = document.createElement ("p");
-				time.textContent = commentData.comment_user;
+				time.innerHTML = commentData.comment_user;
 				div.appendChild(time);
-				document.body.appendChild(div);
 
 				var text = document.createElement ("p");
-				text.textContent = commentData.comment_user;
+				text.innerHTML = commentData.comment_user;
 				div.appendChild(text);
-				document.body.appendChild(div);
 			}
 		}
 	}
