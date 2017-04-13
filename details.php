@@ -65,19 +65,31 @@
 <section class="row" id="reviews">
 	<h2><i class="fa fa-comments" aria-hidden="true"></i> Read the Reviews</h2>
 
-	<?php
+	<div id="reviewInd" class="comment small-12 column">
+		<a href="#stories/{{comment.comment_id}}" class="storyLink">
+			<div class="inner">
+				<h4>{{comment.comment_user}}</h4>
+				<h4>{{comment.comment_rating}}</h4>
+				<p>{{comment.comment_time}}</p>
+				<p>{{comment.comment_text}}</p>
+			</div>
+		</a>
+	</div>
+
+	<!--<?php
 		if(!is_string($getComments)){
 			while($row = mysqli_fetch_array($getComments)){
-				echo "<div id=\"reviewInd\" class=\"small-12 column\">
-						<h4>{$row['comment_user']} {$row['comment_rating']}</h4>
-						<p><span>{$row['comment_time']}</span></p>
-						<p>{$row['comment_text']}</p>
+				echo "<div id=\"reviewInd\" class=\"comment small-12 column\">
+						<h4 id="username">{$row['comment_user']} </h4>
+						<h4 id="rating">{$row['comment_rating']}</h4>
+						<p id="time"><span>{$row['comment_time']}</span></p>
+						<p id="text">{$row['comment_text']}</p>
 					</div>";
 			}
 		}else{
 			echo "<p>{$getComments}</p>";
 		}
-	?>
+	?>-->
 </section>
 
 <section class="row" id="comments">
