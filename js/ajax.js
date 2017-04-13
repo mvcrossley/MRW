@@ -31,7 +31,8 @@
 				var shell = document.querySelector("#reviews");
 				shell.appendChild(div);
 
-				div.classlist.add("reviewInd");
+				div.classlist.add("comment small-12 column");
+				div.setAttribute("id", "reviewInd");
 
 				var user = document.createElement ("h4");
 				user.innerHTML = commentData.comment_user;
