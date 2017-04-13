@@ -54,11 +54,13 @@
 		}
 	}
 
-	function postReview() {
-		var username = document.getElementById("username").value;
+
+	function postReview(e) {
+		var username = document.querySelector("#nickname").value;
 		var time = Date();
-		var rating = document.getElementById("rating").value;
-		var text = document.getElementById("text").value;
+		var rating = document.querySelector("#rating").value;
+		var text = document.querySelector("#review").value;
+		console.log('hello!');
 
 		// Returns successful data submission message when the entered information is stored in database.
 		var dataString = 'name=' + username + '&time=' + time + '&rating=' + rating + '&text=' + text + '&movieId=' + movieID;
@@ -66,20 +68,22 @@
 
 		if (username == '' || rating == '' || text == '') {
 			alert("Please Fill All Fields");
-			} else {
-				// AJAX code to submit form.
-				$.ajax({
-					type: "POST",
-					url: "admin/phpscripts/commentsAJAX.php",
-					data: dataString,
-					cache: false,
-					success: function(html) {
+		} else {
+			e.preventDefault();
+			// AJAX code to submit form.
+			$.ajax({
+				type: "POST",
+				url: "admin/phpscripts/commentsAJAX.php",
+				data: dataString,
+				cache: false,
+				success: function(html) {
 					alert(html);
-					}
-				});
-			}
+				}
+			});
+		}
 		return false;
 	}
 
+	submit.addEventListener('click', postReview, false);
 	window.addEventListener('load', makeRequest, false);
 })();
