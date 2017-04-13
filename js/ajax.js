@@ -4,20 +4,19 @@
 	var httpRequest,
 	comment = document.querySelectorAll('.comment'),
 	i,
-	movieID = window.location.search.slice(4);
-	console.log(movieID);
+	movieID = window.location.search.slice(4);//Getting the movie id through the php-generated URL
+	//console.log(movieID);
 
-//ON-LOAD
 	function makeRequest(url,e){
 		httpRequest = new XMLHttpRequest();
 
-		if(!httpRequest){ // Checking to make sure the browser isn't too old	
+		if(!httpRequest){	
 			alert('Sorry, your browser is too old to access this content.');
-			return false; // This exits out of a function, will execute the next line after function is closed
+			return false;
 		}
 
 		httpRequest.onreadystatechange = loadComments;				
-		httpRequest.open('GET', 'admin/phpscripts/commentsJSON.php?movie_id='+movieID); //Passing in a url through a get protocol
+		httpRequest.open('GET', 'admin/phpscripts/commentsJSON.php?movie_id='+movieID); //Passing through the JSON query using the ID gained from the page's URL
 		httpRequest.send();
 	}
 
