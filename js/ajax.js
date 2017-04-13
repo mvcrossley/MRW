@@ -1,6 +1,5 @@
 (function(){
 
-	console.log("hello!");
 	var httpRequest,
 	comment = document.querySelectorAll('.comment'),
 	i,
@@ -56,14 +55,14 @@
 
 
 	function postReview(e) {
-		var username = document.querySelector("#nickname").value;
+		var username = document.querySelector("#nickname input").value;
 		var time = Date();
-		var rating = document.querySelector("#rating").value;
-		var text = document.querySelector("#review").value;
+		var rating = document.querySelector("#rating select").value;
+		var text = document.querySelector("#review textarea").value;
 		console.log('hello!');
 
 		// Returns successful data submission message when the entered information is stored in database.
-		var dataString = 'name=' + username + '&time=' + time + '&rating=' + rating + '&text=' + text + '&movieId=' + movieID;
+		var dataString = 'username=' + username + '&time=' + time + '&rating=' + rating + '&text=' + text + '&id=' + movieID;
 		console.log (dataString);
 
 		if (username == '' || rating == '' || text == '') {
@@ -77,7 +76,7 @@
 				data: dataString,
 				cache: false,
 				success: function(html) {
-					alert(html);
+					alert("Submitted!");
 				}
 			});
 		}
