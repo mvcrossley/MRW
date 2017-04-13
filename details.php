@@ -12,24 +12,20 @@
 		$tbl2 = "tbl_comments";
 		$getComments = getComments($tbl2, $id);
 
-//		if(isset($_POST['submit']))
-//		{
-//			date_default_timezone_set('America/New_York');
-//
-//			$username = trim($_POST['username']);
-//			$time = date('F j Y h:i:s A');
-//			$text = trim($_POST['text']);
-//			$rating = $_POST['rating'];
-//
-//			if (empty($rating))
-//			{
-//				$message = "Please rate the movie.";
-//			}
-//			else
-//			{
-//				$result = postReview($username, $time, $text, $rating, $id);
-//			}
-//		}
+		// if(isset($_POST['submit'])){
+		// 	date_default_timezone_set('America/New_York');
+		// 	$username = trim($_POST['username']);
+		// 	$time = date('F j Y h:i:s A');
+		// 	$text = trim($_POST['text']);
+		// 	$rating = $_POST['rating'];
+
+		// 	if (empty($rating)){
+		// 		$message = "Please rate the movie.";
+		// 	}
+		// 	else{
+		// 		$result = postReview($username, $time, $text, $rating, $id);
+		// 	}
+		// }
 	}
 ?>
 
@@ -108,7 +104,7 @@
 			</div>
 			
 			<div id="submit" class="small-12 column">
-				<input type="submit" onclick="myFunction()" name="submit" value="Submit">
+				<input type="submit" name="submit" value="Submit">
 			</div>
 		</form>
 
