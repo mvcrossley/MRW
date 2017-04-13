@@ -6,6 +6,7 @@
 	movieID = window.location.search.slice(4);//Getting the movie id through the php-generated URL
 	console.log(movieID),
 	submit = document.querySelector("#submit");
+	var shell = document.querySelector("#reviews");
 
 	function makeRequest(url,e){
 		httpRequest = new XMLHttpRequest();
@@ -28,7 +29,7 @@
 
 			for(i=0; i<commentData.length; i++){
 				var div = document.createElement ("div");
-				var shell = document.querySelector("#reviews");
+				
 				shell.appendChild(div);
 
 				div.setAttribute("class", "comment small-12 column");
@@ -75,8 +76,9 @@
 				url: "admin/phpscripts/commentsAJAX.php",
 				data: dataString,
 				cache: false,
-				success: function(html) {
-					alert("Submitted!");
+				success: function() {
+					shell.innerHTML="";
+					makeRequest();
 				}
 			});
 		}
