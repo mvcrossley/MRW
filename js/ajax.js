@@ -5,7 +5,7 @@
 	comment = document.querySelectorAll('.comment'),
 	i,
 	movieID = window.location.search.slice(4);//Getting the movie id through the php-generated URL
-	//console.log(movieID);
+	console.log(movieID);
 
 	function makeRequest(url,e){
 		httpRequest = new XMLHttpRequest();
@@ -24,13 +24,14 @@
 		if(httpRequest.readyState === XMLHttpRequest.DONE && httpRequest.status === 200){
 			var commentData = JSON.parse(httpRequest.responseText);
 			console.log(commentData.length);
+			console.log(commentData);
 
 			for(i=0; i<commentData.length; i++){
 				var div = document.createElement ("div");
 				var shell = document.querySelector("#reviews");
 				shell.appendChild(div);
 
-				div.classlist.add("comment small-12 column");
+				div.setAttribute("class", "comment small-12 column");
 				div.setAttribute("id", "reviewInd");
 
 				var user = document.createElement ("h4");
@@ -38,15 +39,15 @@
 				div.appendChild(user);
 
 				var rating = document.createElement ("h4");
-				rating.innerHTML = commentData.comment_user;
+				rating.innerHTML = commentData.comment_rating;
 				div.appendChild(rating);
 
 				var time = document.createElement ("p");
-				time.innerHTML = commentData.comment_user;
+				time.innerHTML = commentData.comment_time;
 				div.appendChild(time);
 
 				var text = document.createElement ("p");
-				text.innerHTML = commentData.comment_user;
+				text.innerHTML = commentData.comment_text;
 				div.appendChild(text);
 			}
 		}
