@@ -5,7 +5,8 @@
 	comment = document.querySelectorAll('.comment'),
 	i,
 	movieID = window.location.search.slice(4);//Getting the movie id through the php-generated URL
-	console.log(movieID);
+	console.log(movieID),
+	submit = document.querySelector("#submit");
 
 	function makeRequest(url,e){
 		httpRequest = new XMLHttpRequest();
@@ -35,23 +36,24 @@
 				div.setAttribute("id", "reviewInd");
 
 				var user = document.createElement ("h4");
-				user.innerHTML = commentData.comment_user;
+				user.innerHTML = commentData[i].comment_user;
 				div.appendChild(user);
 
 				var rating = document.createElement ("h4");
-				rating.innerHTML = commentData.comment_rating;
+				rating.innerHTML = commentData[i].comment_rating;
 				div.appendChild(rating);
 
 				var time = document.createElement ("p");
-				time.innerHTML = commentData.comment_time;
+				time.innerHTML = commentData[i].comment_time;
 				div.appendChild(time);
 
 				var text = document.createElement ("p");
-				text.innerHTML = commentData.comment_text;
+				text.innerHTML = commentData[i].comment_text;
 				div.appendChild(text);
 			}
 		}
 	}
 
 	window.addEventListener('load', makeRequest, false);
+	//submit.addEventListener('click', postReview, false);
 })();
