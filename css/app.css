@@ -48,6 +48,15 @@ footer{
 
 /*/////		Index Page  	/////*/
 
+#chooseGenre{
+	text-align: center;
+	padding: 20px;
+}
+
+#chooseGenre h2{
+	font-size: 1.5em;
+}
+
 #home{
 	text-align: center;
 	padding: 20px;

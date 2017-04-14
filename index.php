@@ -39,17 +39,21 @@
 ?>
 
 <?php include("includes/header.html"); ?>
+
+	<section id="chooseGenre" class="row">
+		<h2>Our Favourite Movies!</h2>
+		<ul id="filter">
+			<li id="Comedy" class="genre">Comedy</li>
+			<li id="Horror" class="genre">Horror</li>
+			<li id="Drama" class="genre">Drama</li>
+			<li id="Sci-Fi" class="genre">Sci-fi</li>
+			<li id="Thriller" class="genre">Thriller</li>
+			<li id="Action" class="genre">Action</li>
+		</ul>
+	</section>
+
 	<section class="row">
 		<div id="home">
-		<h2>Our Favourite Movies!</h2>
-			<ul id="filter">
-				<li class="genre"><a>Comedy</a></li>
-				<li class="genre"><a>Horror</a></li>
-				<li class="genre"><a>Drama</a></li>
-				<li class="genre"><a>Sci-fi</a></li>
-				<li class="genre"><a>Thriller</a></li>
-				<li class="genre"><a>Action</a></li>
-			</ul>
 			<?php
 				// if(!is_string($getAll)){
 				// 	while($row = mysqli_fetch_array($getAll)){
