@@ -4,9 +4,9 @@
 	comment = document.querySelectorAll('.comment'),
 	i,
 	movieID = window.location.search.slice(4);//Getting the movie id through the php-generated URL
-	console.log(movieID),
-	submit = document.querySelector("#submit");
+	var submit = document.querySelector("#submit");
 	var shell = document.querySelector("#reviews");
+	var home = document.querySelector("#home");
 
 	function makeRequest(url,e){
 		httpRequest = new XMLHttpRequest();
@@ -14,11 +14,11 @@
 		if(!httpRequest){	
 			alert('Sorry, your browser is too old to access this content.');
 			return false;
+		}else{
+			httpRequest.onreadystatechange = loadComments;				
+			httpRequest.open('GET', 'admin/phpscripts/commentsJSON.php?movie_id='+movieID); //Passing through the JSON query using the ID gained from the page's URL
+			httpRequest.send();
 		}
-
-		httpRequest.onreadystatechange = loadComments;				
-		httpRequest.open('GET', 'admin/phpscripts/commentsJSON.php?movie_id='+movieID); //Passing through the JSON query using the ID gained from the page's URL
-		httpRequest.send();
 	}
 
 	function loadComments(url,e){
@@ -29,7 +29,6 @@
 
 			for(i=0; i<commentData.length; i++){
 				var div = document.createElement ("div");
-				
 				shell.appendChild(div);
 
 				div.setAttribute("class", "comment small-12 column");

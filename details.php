@@ -130,4 +130,7 @@
 		</form>
 
 </section>
+
+<script src="js/detailsajax.js"></script>
+<script src="js/video.js"></script>
 <?php include("includes/footer.html"); ?>

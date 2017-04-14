@@ -1,8 +1,8 @@
 <?php
 	include('connect.php');
 
-	$movieId = $_GET['movie_id'];
-	$queryAll = "SELECT * FROM tbl_comments WHERE comment_movie = '$movieId'"; //Select all comments that have the corresponding movie id#
+	$genre = $_GET['movie_genre'];
+	$queryAll = "SELECT * FROM tbl_movie WHERE movie_genre = '$genre'"; //Select all comments that have the corresponding movie id#
 	$runAll = mysqli_query($link, $queryAll);
 
 	if(empty($runAll) || $runAll == 'null'){ //If the query returns zero results...
