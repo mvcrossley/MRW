@@ -42,6 +42,14 @@
 	<section class="row">
 		<div id="home">
 		<h2>Our Favourite Movies!</h2>
+			<ul id="filter">
+				<li class="genre"><a>Comedy</a></li>
+				<li class="genre"><a>Horror</a></li>
+				<li class="genre"><a>Drama</a></li>
+				<li class="genre"><a>Sci-fi</a></li>
+				<li class="genre"><a>Thriller</a></li>
+				<li class="genre"><a>Action</a></li>
+			</ul>
 			<?php
 				// if(!is_string($getAll)){
 				// 	while($row = mysqli_fetch_array($getAll)){
