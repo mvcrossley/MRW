@@ -44,7 +44,9 @@
 				div.appendChild(rating);
 
 				var time = document.createElement ("p");
-				time.innerHTML = commentData[i].comment_time;
+				var span = document.createElement ("span");
+				span.innerHTML = commentData[i].comment_time;
+				div.appendChild(span);
 				div.appendChild(time);
 
 				var text = document.createElement ("p");
@@ -57,13 +59,13 @@
 
 	function postReview(e) {
 		var username = document.querySelector("#nickname input").value;
-		var time = Date();
+		//var time = new Date(month, date, year);
 		var rating = document.querySelector("#rating select").value;
 		var text = document.querySelector("#review textarea").value;
 		console.log('hello!');
 
 		// Returns successful data submission message when the entered information is stored in database.
-		var dataString = 'username=' + username + '&time=' + time + '&rating=' + rating + '&text=' + text + '&id=' + movieID;
+		var dataString = 'username=' + username + '&rating=' + rating + '&text=' + text + '&id=' + movieID;
 		console.log (dataString);
 
 		if (username == '' || rating == '' || text == '') {

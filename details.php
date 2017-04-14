@@ -7,7 +7,7 @@
 		$id = $_GET['id'];
 		//echo $id;
 		$getOne = getOne($tbl, $col, $id);
-		$getTitle = getOne($tbl, $col, $id);
+		$getVideo = getOne($tbl, $col, $id);
 
 		$tbl2 = "tbl_comments";
 		$getComments = getComments($tbl2, $id);
@@ -39,13 +39,34 @@
 
 <section class="row" id="movieInfo">
 <h2 class="hide">Movie Details</h2>
+    <div class="small-12 large-6 column">
+    	<div id="player"></div> <!--This is where the iframe will go-->
+    	<div id="player-controls">
+    		<a><i id="play-button" class="fa fa-pause" aria-hidden="true"></i></a>
+    		<a><i id="vol-button" class="fa fa-volume-up" aria-hidden="true"></i></a>
+    	</div>
+    </div>
+
+
+    <script>
+      // Creating an <iframe> (and YouTube player) after the API code downloads.
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          videoId: '<?php $row = mysqli_fetch_array($getVideo); echo $row['movie_trailer']; ?>',
+          playerVars: {'modestbranding': 1, 'rel': 0, 'controls':0},
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+      }
+    </script>
 	<?php
 		if(!is_string($getOne)){
 			$row = mysqli_fetch_array($getOne);
 				echo "
-					<div id=\"trailer\" class=\"small-12 large-6 column\">
-						{$row['movie_trailer']}
-					</div>
+					
 					<div id=\"movieDesc\" class=\"small-12 large-6 column\">
 						<h3>{$row['movie_title']}</h3>
 						<p>Year: <span>{$row['movie_year']}</span></p>

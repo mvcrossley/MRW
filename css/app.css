@@ -105,6 +105,11 @@ iframe{
 	height: 350px;
 }
 
+#play-button, #vol-button{
+	padding: 0 10px;
+	color: #f442b3;
+}
+
 #movieDesc{
 
 }
