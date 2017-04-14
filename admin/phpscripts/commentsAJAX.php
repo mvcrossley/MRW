@@ -1,8 +1,10 @@
 <?php
 	include('connect.php');
 
+	date_default_timezone_set('America/New_York');
+
 	$username = trim($_POST['username']);
-	$time = trim($_POST['time']);
+	$time = date('F j Y h:i:s A');
 	$text = trim($_POST['text']);
 	$rating = $_POST['rating'];
 	$id = $_POST['id'];
