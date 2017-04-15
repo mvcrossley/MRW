@@ -9,7 +9,7 @@
 	var home = document.querySelector("#home");
 
 	for (var j=0; j<genreBut.length; j++){
-			//genreBut[j].addEventListener('click', makeRequest2, false);
+			genreBut[j].addEventListener('click', checkTarget, false);
 		}
 
 	function makeRequest(url,e){
@@ -25,9 +25,26 @@
 		}
 	}
 
+	function checkTarget(event){
+		var filterName = event.currentTarget.id;
+		console.log(filterName);
+		
+		if(filterName){
+			httpRequest = new XMLHttpRequest();
+
+			if(!httpRequest){	
+				alert('Sorry, your browser is too old to access this content.');
+				return false;
+			}else{
+				httpRequest.onreadystatechange = loadGenre;				
+				httpRequest.open('GET', 'admin/phpscripts/filtersJSON.php?movie_genre='+filterName); //Passing through the JSON query using the ID gained from the click event
+				httpRequest.send();
+			}
+		}
+	}
+
 	function makeRequest2(url,e){
 		httpRequest = new XMLHttpRequest();
-		var filterName = e.currentTarget.id;
 
 		if(!httpRequest){	
 			alert('Sorry, your browser is too old to access this content.');
