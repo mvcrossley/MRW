@@ -43,7 +43,6 @@
 	<section id="chooseGenre" class="row">
 		<h2>Our Favourite Movies!</h2>
 		<ul id="filter">
-			<li id="Comedy" class="genre"><a>Comedy</a></li>
 			<li id="Horror" class="genre"><a>Horror</a></li>
 			<li id="Drama" class="genre"><a>Drama</a></li>
 			<li id="Sci-Fi" class="genre"><a>Sci-fi</a></li>
