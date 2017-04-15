@@ -8,6 +8,10 @@
 	var shell = document.querySelector("#reviews");
 	var home = document.querySelector("#home");
 
+	for (var j=0; j<genreBut.length; j++){
+			//genreBut[j].addEventListener('click', makeRequest2, false);
+		}
+
 	function makeRequest(url,e){
 		httpRequest = new XMLHttpRequest();
 
@@ -101,13 +105,5 @@
 		}
 	}
 
-	function checkGenres(){
-		for (var j=0; j<genreBut.length; j++){
-			console.log(genreBut[j]);
-			genreBut[j].addEventListener('click', makeRequest2, false);
-		}
-	}
-
-	window.addEventListener('load', checkGenres, false);
 	window.addEventListener('load', makeRequest, false);
 })();
