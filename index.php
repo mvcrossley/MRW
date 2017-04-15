@@ -52,6 +52,7 @@
 	</section>
 
 	<section class="row">
+	<h2 class="hide">Movies List</h2>
 		<div id="home">
 			<?php
 				// if(!is_string($getAll)){
