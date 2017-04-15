@@ -43,12 +43,12 @@
 	<section id="chooseGenre" class="row">
 		<h2>Our Favourite Movies!</h2>
 		<ul id="filter">
-			<li id="Comedy" class="genre">Comedy</li>
-			<li id="Horror" class="genre">Horror</li>
-			<li id="Drama" class="genre">Drama</li>
-			<li id="Sci-Fi" class="genre">Sci-fi</li>
-			<li id="Thriller" class="genre">Thriller</li>
-			<li id="Action" class="genre">Action</li>
+			<li id="Comedy" class="genre"><a>Comedy</a></li>
+			<li id="Horror" class="genre"><a>Horror</a></li>
+			<li id="Drama" class="genre"><a>Drama</a></li>
+			<li id="Sci-Fi" class="genre"><a>Sci-fi</a></li>
+			<li id="Thriller" class="genre"><a>Thriller</a></li>
+			<li id="Action" class="genre"><a>Action</a></li>
 		</ul>
 	</section>
 
