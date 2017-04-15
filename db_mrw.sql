@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 15, 2017 at 03:58 AM
+-- Generation Time: Apr 15, 2017 at 04:19 AM
 -- Server version: 5.7.11
--- PHP Version: 5.6.19
+-- PHP Version: 7.0.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -42,11 +42,14 @@ CREATE TABLE `tbl_comments` (
 INSERT INTO `tbl_comments` (`comment_id`, `comment_user`, `comment_time`, `comment_text`, `comment_rating`, `comment_movie`) VALUES
 (1, 'Dingdong', 'April 10 2017 8:22pm', 'First!', '&#9733;&#9733;&#9733;&#9733;&#9733;', 1),
 (2, 'Stupit', 'April 10 2017 11:27:46 PM', 'Too sad', 'â˜…â˜†â˜†â˜†â˜†', 1),
-(13, 'Scott', 'April 14 2017 03:01:40 PM', 'NIce', 'â˜…â˜…â˜…â˜…â˜…', 2),
-(14, 'lady', 'April 14 2017 11:38:01 PM', 'NIiiicece', 'â˜…â˜…â˜…â˜†â˜†', 6),
-(15, 'ian', 'April 14 2017 11:39:06 PM', 'yee', 'â˜…â˜…â˜…â˜…â˜†', 9),
-(16, 'hello', 'April 14 2017 11:51:00 PM', 'goooob', 'â˜…â˜…â˜…â˜†â˜†', 6),
-(17, 'Creeped out guy', 'April 14 2017 11:54:57 PM', 'toospooky', 'â˜…â˜†â˜†â˜†â˜†', 10);
+(21, 'QTpi', 'April 15 2017 12:15:32 AM', '2 stars for all the hot guys, but the rest is trash', 'â˜…â˜…â˜†â˜†â˜†', 7),
+(20, 'unimpressed', 'April 15 2017 12:14:37 AM', 'Died from drinking too much? Please', 'â˜…â˜†â˜†â˜†â˜†', 7),
+(19, 'no-sleep', 'April 15 2017 12:10:47 AM', 'Movie so good, I can no longer tell if im sleeping or dreaming', 'â˜…â˜…â˜…â˜…â˜…', 5),
+(16, 'Scarf_lov3r', 'April 14 2017 11:47:24 PM', 'Great movie. Rated 4 stars as I used to have the same scarf as Jack but now I can\'t wear it as people think I\'m trying to get them', 'â˜…â˜…â˜…â˜†â˜†', 2),
+(18, 'Ex-MommasBoy', 'April 15 2017 12:08:52 AM', 'This movie changed my life.', 'â˜…â˜…â˜…â˜…â˜…', 4),
+(17, 'Guy_Fieri', 'April 15 2017 12:08:06 AM', 'They r soooo cute <3', 'â˜…â˜…â˜†â˜†â˜†', 3),
+(13, 'Greaay', 'April 14 2017 11:39:40 PM', 'eweqe', 'â˜…â˜…â˜…â˜†â˜†', 10),
+(22, 'skunk', 'April 15 2017 12:15:54 AM', 'LOVE THIS', 'â˜…â˜…â˜…â˜…â˜…', 8);
 
 -- --------------------------------------------------------
 
@@ -105,7 +108,7 @@ ALTER TABLE `tbl_movie`
 -- AUTO_INCREMENT for table `tbl_comments`
 --
 ALTER TABLE `tbl_comments`
-  MODIFY `comment_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `comment_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `tbl_movie`
 --
